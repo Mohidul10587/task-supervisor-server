@@ -19,7 +19,7 @@ async function run() {
         console.log('connected')
         const tasksCollection = client.db("tasks_information").collection("single_task");
 
-        app.get('/task', async (req, res) => {
+        app.get('/', async (req, res) => {
             const query = {};
             const cursor = tasksCollection.find(query)
             const taskCollectionArray = await cursor.toArray()
