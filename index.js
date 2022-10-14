@@ -18,24 +18,23 @@ async function run() {
         await client.connect()
         console.log('connected')
         const tasksCollection = client.db("tasks_information").collection("single_task");
-       
-app.get('/task',async(req,res)=>{
-const query = {};
-const cursor = tasksCollection.find(query)
-const taskCollectionArray = await cursor.toArray()
-res.send(taskCollectionArray)
+
+        app.get('/task', async (req, res) => {
+            const query = {};
+            const cursor = tasksCollection.find(query)
+            const taskCollectionArray = await cursor.toArray()
+            res.send(taskCollectionArray)
 
 
-})
+        })
 
 
-
-        app.post('/task',async (req, res) => {
+        app.post('/task', async (req, res) => {
 
             const newTask = req.body;
-       
+
             const result = await tasksCollection.insertOne(newTask);
-           
+
             res.send(result)
 
 
