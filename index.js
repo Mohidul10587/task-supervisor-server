@@ -19,6 +19,14 @@ async function run() {
         console.log('connected')
         const tasksCollection = client.db("tasks_information").collection("single_task");
 
+        app.get('/', async (req, res) => {
+            
+            
+            res.send({name:'mohid'})
+
+
+        })
+
         app.get('/task', async (req, res) => {
             const query = {};
             const cursor = tasksCollection.find(query)
